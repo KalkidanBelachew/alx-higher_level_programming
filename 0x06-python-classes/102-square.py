@@ -1,21 +1,53 @@
 #!/usr/bin/python3
-"""Magic class from a given ByteCode."""
-import math
+class Square:
+    """Represents a square.
+    Private instance attribute: size:
+        - property def size(self)
+        - property setter def size(self, value)
+    Instantiation with optional size.
+    Public instance method: def area(self).
+    """
 
+    def __init__(self, size=0):
+        """Initializes the data."""
+        self.__size = size
 
-class MagicClass:
-    """Initialization of the MagicClass."""
-    def __init__(self, radius=0):
-        """Initialization of the data."""
-        self._MagicClass__radius = 0
-        if type(radius) is not int and type(radius) is not float:
-            raise TypeError("radius must be a number")
-        self._MagicClass__radius = radius
+    def __eq__(self, other):
+        """Equal."""
+        if hasattr(other, 'size'):
+            return self.__size == other.__size
+        return self.__size == other
+
+    def __ne__(self, other):
+        """Not equal."""
+        return not self.__eq__(other)
+
+    def __lt__(self, other):
+        """Less than."""
+        if hasattr(other, 'size'):
+            return self.__size < other.__size
+        return self.__size < other
+
+    def __le__(self, other):
+        """Less than or equal."""
+        if hasattr(other, 'size'):
+            return self.__size <= other.__size
+        return self.__size <= other
+
+    @property
+    def size(self):
+        """Retrieves the size."""
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """Sets the size to a value."""
+        if not isinstance(value, int) or not isinstance(value, float):
+            raise TypeError("size must be a number")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
     def area(self):
-        """Calculation of the area."""
-        return self._MagicClass__radius ** 2 * math.pi
-
-    def circumference(self):
-        """Calculation of the circumference."""
-        return 2 * math.pi * self._MagicClass__radius
+        """Returns the current square area."""
+        return self.__size ** 2
