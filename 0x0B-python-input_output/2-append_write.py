@@ -1,28 +1,16 @@
 #!/usr/bin/python3
-"""Module 2-read_lines.
-Reads a certain number of lines from a file.
+# -*- coding: utf-8 -*-:
 """
 
 
-def read_lines(filename="", nb_lines=0):
-    """Reads and prints nb_lines lines from filename.
-    Args:
-        - filename: name of the file
-        - nb_lines: number of lines to read
+def append_write(filename="", text=""):
     """
-
-    with open(filename) as f:
-        i = 0
-        count = 0
-        for line in f:
-            count += 1
-        f.seek(0)
-        if nb_lines <= 0 or nb_lines >= count:
-            read_text = f.read()
-            print(read_text, end="")
-        else:
-            for line in f:
-                print(line, end='')
-                i += 1
-                if i == nb_lines:
-                    break
+    Appends inputed text into a utf-8 encoded text file
+    Arguments:
+        filename (str): The name of the file to open
+        text (str): The text to append
+    Return:
+        A file with appened text
+    """
+    with open(filename, 'a', encoding='utf-8') as file:
+        return file.write(text)
