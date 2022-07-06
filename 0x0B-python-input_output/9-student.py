@@ -5,25 +5,26 @@ Creates a Student class.
 
 
 class Student:
-    """Class that defines a student.
-    Public attributes:
-        - first_name
-        - last_name
-        - age
-    Public method to_json().
     """
-
+    Student class
+    """
     def __init__(self, first_name, last_name, age):
-        """Initializes the Student instance."""
-
+        """
+        init method for Student class
+        Attributes:
+            first_name (str): The first name of the student
+            last_name (str): The last name of the student
+            age (int): The age of the student
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        """Retrieves a dictionary representation
-        of a Student instance.
-        Returns: the dict representation of the instance.
         """
-
-         return self.__dict__
+        Represents of Student into json format
+        Return:
+            Student class as a json format
+        """
+        return {key: value for (key, value) in self.__dict__.items()
+                if key in list(self.__dict__.keys())}
