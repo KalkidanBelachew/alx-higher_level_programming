@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
+"""Module 2-append_file.
+Writes in a text file.
+"""
 
 
 
