@@ -23,4 +23,4 @@ def pascal_triangle(n):
             new[i] = pascal[i - 1] + pascal[i]
         pascal = new[:]
         triangle.append(pascal)
-    return `
+    return triangle
