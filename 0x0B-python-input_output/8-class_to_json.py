@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-"""Module 8-load_from_json_file.
-Creates an Object from a “JSON file”.
+"""Module 8-class_to_json.
+Returns the dictionary description with
+simple data structure (list, dictionary,
+string, integer and boolean)
+for JSON serialization of an object.
 """
 
 
-import json
-
-
-def load_from_json_file(filename):
-    """Creates an object from filename.
+def class_to_json(obj):
+    """Creates a dict description of obj.
     Args:
-        - filename: name of the JSON file
-    Returns: the object
+        - obj: object to serialize
+    Returns: dictionnary description of obj
     """
 
-    with open(filename, 'r') as f:
-        return json.load(f)
+    return obj.__dict__
