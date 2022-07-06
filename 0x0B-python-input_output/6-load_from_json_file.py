@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""Module 6-from_json_string.
-Returns an object (Python data structure)
-represented by a JSON string.
+"""Module 6-load_from_json_file.
+Creates an Object from a “JSON file”.
 """
 
 
 import json
 
 
-def from_json_string(my_str):
-    """Return the object represented my my_str.
+def load_from_json_file(filename):
+    """Creates an object from filename.
     Args:
-        - my_str: JSON string representation
-    Returns: corresponding object
+        - filename: name of the JSON file
+    Returns: the object
     """
 
-    return json.loads(my_str)
+    with open(filename, 'r') as f:
+        return json.load(f)
